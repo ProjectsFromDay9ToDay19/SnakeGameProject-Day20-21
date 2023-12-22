@@ -25,3 +25,19 @@ class Snake:
             self.snake_body[segment_index].goto(new_x, new_y)
 
         self.snake_body[0].forward(MOVE_DISTANCE)
+
+    def up(self):
+        if self.snake_body[0].heading() != 270:
+            self.snake_body[0].setheading(90)
+
+    def down(self):
+        if self.snake_body[0].heading() != 90:
+            self.snake_body[0].setheading(270)
+
+    def left(self):
+        if self.snake_body[0].heading() != 0:
+            self.snake_body[0].setheading(180)
+
+    def right(self):
+        if self.snake_body[0].heading() != 180:
+            self.snake_body[0].setheading(0)
