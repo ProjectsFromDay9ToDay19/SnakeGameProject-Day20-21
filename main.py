@@ -25,13 +25,17 @@ game_screen.onkey(fun=snake.right, key="Right")
 game_is_on = True
 while game_is_on:
     game_screen.update()
-    time.sleep(0.2)
+    time.sleep(0.1)
     snake.move()
 
     # Detect collision with food
     if snake.head.distance(ball) < 15:
         ball.refresh_position()
         scoreboard.increase_score()
+
+    if not -280 <= snake.head.xcor() <= 280 or (not -290 <= snake.head.ycor() <= 290):
+        game_is_on = False
+        scoreboard.game_over()
 
 # keeping the screen on
 game_screen.exitonclick()
